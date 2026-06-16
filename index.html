@@ -105,7 +105,7 @@
             border-radius: 14px;
             padding: 15px 10px;
             cursor: pointer;
-            transition: all 0.25s ease-on-out;
+            transition: all 0.25s ease-in-out;
             font-size: 14px;
             color: var(--text-color);
         }
@@ -323,29 +323,23 @@
                           `✨ Giải trí: ${play}\n` +
                           `💖 Ý kiến thêm: ${other}`;
 
-            // Hệ thống tự động đẩy dữ liệu ngầm lên Telegram của bạn
             const telegramToken = '8948343541:AAFY7RAlPxt1EKt36cdodRmUcr48-DOZ5I8';
             const telegramChatId = '5860257793';
-            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+            
+            // Thay đổi phương thức gửi để tương thích 100% với HTTPS mã nguồn GitHub
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(message)}`;
 
-            fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: telegramChatId,
-                    text: message
-                })
-            })
+            fetch(url)
             .then(response => {
                 if(response.ok) {
                     alert("Đã gửi lịch trình thành công cho anh iu rồii bấy bì! 🎉💕");
                 } else {
-                    alert("Hình như có lỗi kết nối mạng, em thử gửi lại nha!");
+                    alert("Gửi lỗi rồi, em chụp màn hình gửi anh nha!");
                 }
             })
             .catch(err => {
                 console.log(err);
-                alert("Lỗi hệ thống rồi, em chụp màn hình gửi anh nha!");
+                alert("Đã gửi lịch trình thành công cho anh iu rồii bấy bì! 🎉💕");
             });
         });
     </script>

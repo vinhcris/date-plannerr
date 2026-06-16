@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lên Kế Hoạch Hẹn Hò Cùng Công Chúa 💖</title>
+    <style>
+        :root {
+            --pink-primary: #ff85a2;
+            --pink-light: #fbc2eb;
+            --purple-light: #a6c1ee;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--purple-light) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.93);
+            border-radius: 24px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 520px;
+            box-shadow: 0 12px 40px rgba(255, 140, 160, 0.25);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d1496b;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .question-group {
+            margin-bottom: 25px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 16px;
+            border: 1px solid #fffdfd;
+        }
+
+        label.main-label {
+            display: block;
+            font-weight: bold;
+            color: #c93b60;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #fdcbd6;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            color: var(--text-color);
+            background-color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .option-item input[type="radio"] {
+            display: none;
+        }
+
+        .option-item label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 14px;
+            padding: 15px 10px;
+            cursor: pointer;
+            transition: all 0.25s ease-on-out;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .option-item label .icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .option-item input[type="radio"]:checked + label {
+            background: #fff0f3;
+            border-color: var(--pink-primary);
+            color: #d1496b;
+            font-weight: bold;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(255, 133, 162, 0.15);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--pink-primary);
+            background: #fff;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 117, 140, 0.4);
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.5);
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 140, 160, 0.45);
+            font-size: 20px;
+            animation: fly 6s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        const icons = ['❤️', '✨', '🍕', '🍰', '🥤', '🍦', '💖'];
+        for (let i = 0; i < 20; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            heart.style.fontSize = (Math.random() * 12 + 16) + 'px';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div class="container">
+        <h1>Date Planner Thần Thánh 📝💕</h1>
+        <p class="subtitle">Em chọn lịch trình đi chơi để anh lên kế hoạch rước nhé!</p>
+
+        <form id="dateForm">
+            
+            <div class="question-group">
+                <label class="main-label">📅 1. Ngày mình đi chơi là ngày nào nà?</label>
+                <input type="date" id="dateSelect" required>
+            </div>
+
+            <div class="question-group">
+                <label class="main-label">🥞 2. Buổi sáng mình ăn gì cho ấm bụng?</label>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="radio" id="morning1" name="morning" value="Phở bò/gà" checked>
+                        <label for="morning1"><span class="icon">🍜</span>Phở siêu ngon</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="morning2" name="morning" value="Bún chả/Bún cá">
+                        <label for="morning2"><span class="icon">🧆</span>Bún chả / cá</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="morning3" name="morning" value="Bánh mì chảo">
+                        <label for="morning3"><span class="icon">🍳</span>Bánh mì chảo</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="morning4" name="morning" value="Xôi xéo/Bánh mì pate">
+                        <label for="morning4"><span class="icon">🥖</span>Xôi / Bánh mì</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <label class="main-label">🍕 3. Bữa trưa ăn gì cho hoành tráng?</label>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="radio" id="lunch1" name="lunch" value="Gà rán/Pizza" checked>
+                        <label for="lunch1"><span class="icon">🍗</span>Gà rán / Pizza</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="lunch2" name="lunch" value="Đồ Hàn cay nồng">
+                        <label for="lunch2"><span class="icon">🥘</span>Món Hàn/Tok</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="lunch3" name="lunch" value="Sushi/Cơm Nhật">
+                        <label for="lunch3"><span class="icon">🍣</span>Sushi / Đồ Nhật</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="lunch4" name="lunch" value="Cơm tấm/Cơm gà">
+                        <label for="lunch4"><span class="icon">🍛</span>Cơm tấm / gà</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <label class="main-label">🍲 4. Buổi tối lãng mạn thì ăn gì đây?</label>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="radio" id="dinner1" name="dinner" value="Lẩu Thái/Lẩu Haidilao" checked>
+                        <label for="dinner1"><span class="icon">🍲</span>Lẩu xì xụp</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="dinner2" name="dinner" value="Nướng xèo xèo">
+                        <label for="dinner2"><span class="icon">🥩</span>Thịt nướng</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="dinner3" name="dinner" value="Bít tết/Pasta mỳ Ý">
+                        <label for="dinner3"><span class="icon">🍝</span>Mỳ Ý / Bít tết</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="dinner4" name="dinner" value="Ốc nóng vỉa hè">
+                        <label for="dinner4"><span class="icon">🐚</span>Ốc nóng luộc/xào</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <label class="main-label">🍧 5. Tráng miệng hoặc đi chơi ở đâu ta?</label>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <input type="radio" id="play1" name="play" value="Trà sữa/Bingsu" checked>
+                        <label for="play1"><span class="icon">🧋</span>Trà sữa / Bingsu</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="play2" name="play" value="Cà phê view đẹp chụp ảnh">
+                        <label for="play2"><span class="icon">☕</span>Cà phê sống ảo</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="play3" name="play" value="Xem phim rạp">
+                        <label for="play3"><span class="icon">🎬</span>Xem phim rạp</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" id="play4" name="play" value="Lượn phố hóng gió">
+                        <label for="play4"><span class="icon">🛵</span>Lượn phố hóng gió</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <label class="main-label">✏️ 6. Mong muốn thầm kín khác của bé:</label>
+                <input type="text" id="otherRequest" placeholder="Ví dụ: Phải ôm em, mua hoa cho em...">
+            </div>
+
+            <button type="submit" class="btn-submit">Gửi menu cho anh iu duyệt liền! ✨🌸</button>
+        </form>
+    </div>
+
+    <script>
+        // Tự động set ngày mặc định là ngày mai
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('dateSelect').value = tomorrow.toISOString().split('T')[0];
+
+        document.getElementById('dateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let rawDate = document.getElementById('dateSelect').value;
+            let dateFormatted = rawDate.split('-').reverse().join('/'); 
+            
+            let morning = document.querySelector('input[name="morning"]:checked').value;
+            let lunch = document.querySelector('input[name="lunch"]:checked').value;
+            let dinner = document.querySelector('input[name="dinner"]:checked').value;
+            let play = document.querySelector('input[name="play"]:checked').value;
+            let other = document.getElementById('otherRequest').value || "Không có, chỉ cần anh thui!";
+
+            let message = `🔔 CÓ LỊCH HẸN HÒ MỚI NÈ ANH ƠI:\n` +
+                          `📅 Ngày đi: ${dateFormatted}\n` +
+                          `✨ Sáng ăn: ${morning}\n` +
+                          `✨ Trưa ăn: ${lunch}\n` +
+                          `✨ Tối ăn: ${dinner}\n` +
+                          `✨ Giải trí: ${play}\n` +
+                          `💖 Ý kiến thêm: ${other}`;
+
+            // Hệ thống tự động đẩy dữ liệu ngầm lên Telegram của bạn
+            const telegramToken = '8948343541:AAFY7RAlPxt1EKt36cdodRmUcr48-DOZ5I8';
+            const telegramChatId = '5860257793';
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: telegramChatId,
+                    text: message
+                })
+            })
+            .then(response => {
+                if(response.ok) {
+                    alert("Đã gửi lịch trình thành công cho anh iu rồii bấy bì! 🎉💕");
+                } else {
+                    alert("Hình như có lỗi kết nối mạng, em thử gửi lại nha!");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                alert("Lỗi hệ thống rồi, em chụp màn hình gửi anh nha!");
+            });
+        });
+    </script>
+</body>
+</html>
